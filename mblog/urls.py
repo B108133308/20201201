@@ -9,5 +9,6 @@ urlpatterns = [
     path('lotto/', lotto),
     path('mychart/', mychart),
     path('mychart/<int:bid>/', mychart),
+    path('mychartmonth/',mychart),
     path('', homepage),
 ]
