@@ -23,6 +23,7 @@ def mychart(request, bid=0):
    
     return render(request, "mychart.html", locals())
 
+
 def showpost(request, slug):
 	now = datetime.now()
 	try:

@@ -3,26 +3,29 @@
 我的統計圖表
 {% endblock %}
 {% block titlemessage %}
-    <h1>我的統計圖表</h1>
-{% endblock %}
-{% block content %}
-<button><a href="/mychart/">全部顯示</a></button>
-{% for branch in branches %}
-     <button>
-         <a href="/mychart/{{branch.id}}/">{{branch.title}}</a>
-        </button>
-{% endfor %}
+<h1>
+    線上統計圖
+    <small class="text-muted">店家營收</small>
+  </h1>
+  {% endblock %}
+  {% block content %}
+  <button type="button" class="btn btn-outline-dark"><a href="/mychart/">店家總覽</a></button>
+  {% for branch in branches %}
+       <button type="button" class="btn btn-outline-info">
+           <a href="/mychart/{{branch.id}}/">{{branch.title}}</a>
+       </button>
+  {% endfor %}
 <center>
 <table width=800>
   <tr><td>
-<canvas id="myChart" width="800" height="400"></canvas>
+    <canvas id="myChart" width="800" height="400"></canvas>
 </td></tr>
 </table>
 </center>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'polarArea',
     data: {
         labels: [
              {% for item in data %}
@@ -52,7 +55,7 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 4
         }]
     },
     options: {
@@ -65,5 +68,5 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-</script>
+    </script>
 {% endblock %}

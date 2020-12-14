@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>何敏煌的網站</title>
+    <title>游的練習網站</title>
     <style>
         body {
             font-family: 微軟正黑體;
@@ -16,9 +16,9 @@
     </style>
   </head>
   <body>
-    <h1>何敏煌的上課用Django示範網站</h1>
+    <h1>游的程式練習網站</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">樂透預測</a>
+        <a class="navbar-brand" href="#">大樂透號碼預測</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,7 +29,7 @@
               <a class="nav-link" href="/">回首頁 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://cla.nkust.edu.tw">博雅教育中心</a>
+              <a class="nav-link" href="https://www.nkust.edu.tw/">高科大首頁</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,13 +37,13 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/lotto/">大樂透預測</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="https://www.taiwanlottery.com.tw/lotto/lotto649/history.aspx">樂透彩官方網站</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="https://www.etax.nat.gov.tw/etw-main/web/ETW183W1/">統一發票也可以對一下</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -69,9 +69,9 @@
 
 
 
-<h1>下期大樂透預測號碼如下：</h1>
-<h3>特別號：{{ lucky }}</h3>
-一般號：
+<h2></p>下期大樂透預測號碼如下：</p></h2>
+<h3><mark>特別號：{{ lucky }}</mark></h3>
+<h3>一般號：</h3>
 {% for number in lottos %}
     <h3>{{number}}</h3>
 {% endfor %}
