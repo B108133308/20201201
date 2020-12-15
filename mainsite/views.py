@@ -23,6 +23,16 @@ def mychart(request, bid=0):
    
     return render(request, "mychart.html", locals())
 
+def mychartmonth(request, month = 10):
+    now = datetime.now()
+    branches = Branch.objects.all()
+    if month ==10:
+        data = StoreIncome.objects.filter(income_month=10)
+    else:
+        data = StoreIncome.objects.filter(income_month = 0)
+   
+    return render(request, "mychart.html", locals())
+
 
 def showpost(request, slug):
 	now = datetime.now()
