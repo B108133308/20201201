@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from mainsite.models import Post
 import random
 from datetime import datetime
-from mainsite.models import AccessInfo, Branch, StoreIncome
+from mainsite.models import AccessInfo, Branch, StoreIncome, text1
 
 def homepage(request):
     rec = AccessInfo()
@@ -12,6 +12,14 @@ def homepage(request):
     posts = Post.objects.all()
     now = datetime.now()
     return render(request, "index.html", locals())
+
+def text1(request, slug):
+	now = datetime.now()
+	try:
+		post = text1.objects.get(slug=slug)
+		return render(request, "text1.html", locals())
+	except:
+		return redirect("/")
 
 def mychart(request, bid=0):
     now = datetime.now()
@@ -59,4 +67,6 @@ def lotto(request):
         lottos.append(random.randint(1, 42))
     
     return render(request, "lotto.html", locals())
+
+
     

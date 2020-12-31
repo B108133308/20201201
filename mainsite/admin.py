@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mainsite.models import Post, AccessInfo, Branch, StoreIncome
+from mainsite.models import Post, AccessInfo, Branch, StoreIncome, text1
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'pub_date')
@@ -16,3 +16,12 @@ class StoreIncomeAdmin(admin.ModelAdmin):
     'income_month', 'income')
 
 admin.site.register(StoreIncome, StoreIncomeAdmin)
+
+class text1Admin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'pub_date')
+
+admin.site.register(text1, text1Admin)
+
+
+
+
