@@ -11,6 +11,6 @@ urlpatterns = [
     path('mychart/<int:bid>/', mychart),
     path('chartbydate/<int:year>/<int:month>/',chart),
     path('chartbydate/<int:year>/',chart),
-    path('text1/', text1),
+    path('text1/<str:slug>/', text1),
     path('', homepage),
 ]

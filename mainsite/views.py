@@ -13,14 +13,6 @@ def homepage(request):
     now = datetime.now()
     return render(request, "index.html", locals())
 
-def text1(request, slug):
-	now = datetime.now()
-	try:
-		post = text1.objects.get(slug=slug)
-		return render(request, "text1.html", locals())
-	except:
-		return redirect("/")
-
 def mychart(request, bid=0):
     now = datetime.now()
 
@@ -68,5 +60,12 @@ def lotto(request):
     
     return render(request, "lotto.html", locals())
 
+def text1(request):
+	now = datetime.now()
+	try:
+		post = text1.objects.get(slug=slug)
+		return render(request, "text1.html", locals())
+	except:
+		return redirect("/")
 
     
