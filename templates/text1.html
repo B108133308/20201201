@@ -13,13 +13,13 @@
 {% block content %}
       <div class="card">
         <div class="card-header">
-          {{ text1.title }}
+          {{ post.title }}
         </div>
         <div class="card-body">
-          {{ text1.body | linebreaks }}
+          {{ post.body | linebreaks }}
         </div>
         <div class="card-footer">
-          {{ text1.pub_date }}
+          {{ post.pub_date }}
         </div>
       </div>
 {% endblock %}

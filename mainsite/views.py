@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from mainsite.models import Post
 import random
 from datetime import datetime
-from mainsite.models import AccessInfo, Branch, StoreIncome, text1
+from mainsite.models import AccessInfo, Branch, StoreIncome, text1, City, Keep
 
 def homepage(request):
     rec = AccessInfo()
@@ -12,6 +12,18 @@ def homepage(request):
     posts = Post.objects.all()
     now = datetime.now()
     return render(request, "index.html", locals())
+
+def citykeep(request, bid=0):
+    now = datetime.now()
+
+    cities = City.objects.all()
+
+    if bid ==0:
+        data = Keep.objects.all()
+    else:
+        data = Keep.objects.filter(city=bid)
+    title = "縣市收容" 
+    return render(request, "keep.html", locals())
 
 def mychart(request, bid=0):
     now = datetime.now()
@@ -60,10 +72,10 @@ def lotto(request):
     
     return render(request, "lotto.html", locals())
 
-def text1(request):
+def Text1(request):
 	now = datetime.now()
 	try:
-		post = text1.objects.get(slug=slug)
+		post = text1.objects.all()
 		return render(request, "text1.html", locals())
 	except:
 		return redirect("/")

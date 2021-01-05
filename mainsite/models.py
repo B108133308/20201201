@@ -52,4 +52,17 @@ class text1(models.Model):
     def __str__(self):
         return self.title
 
+class City(models.Model):
+    cityname = models.CharField(max_length=200)
+    cityleader = models.CharField(max_length=200)
 
+    def __str__(self):
+        return str(self.cityname)
+
+class Keep(models.Model):
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    keep_year = models.CharField(max_length=4)
+    keep_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.keep_num)

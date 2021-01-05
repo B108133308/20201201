@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mainsite.models import Post, AccessInfo, Branch, StoreIncome, text1
+from mainsite.models import Post, AccessInfo, Branch, StoreIncome, text1, City, Keep
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'pub_date')
@@ -22,6 +22,10 @@ class text1Admin(admin.ModelAdmin):
 
 admin.site.register(text1, text1Admin)
 
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('cityname', 'cityleader')
+admin.site.register(City, CityAdmin)
 
-
-
+class KeepAdmin(admin.ModelAdmin):
+    list_display = ('city', 'keep_year', 'keep_num')
+admin.site.register(Keep, KeepAdmin)
