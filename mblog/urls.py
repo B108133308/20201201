@@ -12,7 +12,7 @@ urlpatterns = [
     path('chartbydate/<int:year>/<int:month>/',chart),
     path('chartbydate/<int:year>/',chart),
     path('text1/', Text1),
-    path('Keep/', citykeep),
-    path('Keep/<int:bid>/', citykeep),
+    path('keep/', citykeep),
+    path('keep/<int:bid>/', citykeep),
     path('', homepage),
 ]

@@ -57,12 +57,12 @@ def chart(request, year=0, month=0):
 
 
 def showpost(request, slug):
-	now = datetime.now()
-	try:
-		post = Post.objects.get(slug=slug)
-		return render(request, "post.html", locals())
-	except:
-		return redirect("/")
+    now = datetime.now()
+    try:
+        post = Post.objects.get(slug=slug)
+        return render(request, "post.html", locals())
+    except:
+        return redirect("/")
 
 def lotto(request):
     lucky = random.randint(1, 42)
@@ -73,11 +73,12 @@ def lotto(request):
     return render(request, "lotto.html", locals())
 
 def Text1(request):
-	now = datetime.now()
-	try:
-		post = text1.objects.all()
-		return render(request, "text1.html", locals())
-	except:
-		return redirect("/")
+    now = datetime.now()
+    try:
+        orgs = text1.objects.all()
+        return render(request, "text1.html", locals())
+    except Exception as e:
+        print(e)
+        return redirect("/")
 
     

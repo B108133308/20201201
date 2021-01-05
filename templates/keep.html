@@ -4,60 +4,48 @@
 {% endblock %}
 {% block titlemessage %}
 <h1>
-    游的線上統計圖
-    <small class="text-muted">店家營收</small>
-  </h1>
-  {% endblock %}
-  {% block content %}
-  <button type="button" class="btn btn-outline-dark"><a href="/mychart/">店家總覽</a></button>
-  {% for branch in branches %}
-       <button type="button" class="btn btn-outline-info">
-           <a href="/mychart/{{branch.id}}/">{{branch.title}}</a>
-       </button>
-  {% endfor %}
+    收容數量統計圖
+    <small class="text-muted">各縣市收容數量</small></h1>
+{% endblock %}
+{% block content %}
 
 <br>
-月份：
-<button class='btn btn-sm'>
-    <a href='/chartbydate/2020/10'>2020/10</a>
-</button>
-<button class='btn btn-sm'>
-    <a href='/chartbydate/2020/8'>2020/8</a>
-</button>
-年份：
-<button class='btn btn-sm'>
-    <a href='/chartbydate/2020/'>2020</a>
-</button>
-<button class='btn btn-sm'>
-    <a href='/chartbydate/2020/'>2021</a>
-</button>
+<center>
+<button><a href="/keep/1">新北市</a></button>
+<button><a href="/keep/2">臺北市</a></button>
+<button><a href="/keep/3">臺中市</a></button>
+<button><a href="/keep/4">臺南市</a></button>
+<button><a href="/keep/5">高雄市</a></button>
+<button><a href="/keep/6">桃園市</a></button>
+</center>
+
 
 <center>
 <table width=800>
   <tr>
       <td>
             <canvas id="myChart" width="800" height="400"></canvas>
-        </td>
+      </td>
     </tr>
 </table>
-
 </center>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'polarArea',
+    type: 'line',
     data: {
         labels: [
-             {% for item in data %}
-                  '{{ item.city }}',
-             {% endfor %}
+              {% for item in data %}
+                  '{{ item.keep_year }}{{ item.city }}',
+              {% endfor %}
+
         ],
         datasets: [{
-            label: '{{title}}',
+            label: "歷年收養數量",
             data: [
-            {% for item in data %}
+                {% for item in data %}
                   '{{ item.keep_num }}',
-             {% endfor %}
+                {% endfor %}
             ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

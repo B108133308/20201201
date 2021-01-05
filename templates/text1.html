@@ -10,15 +10,17 @@
 
 {% endblock %}
 {% block content %}
+{% for org in orgs %}
       <div class="card">
         <div class="card-header">
-          {{ post.title }}
+          {{ org.title }}
         </div>
         <div class="card-body">
-          {{ post.body | linebreaks }}
+          {{ org.body | linebreaks }}
         </div>
         <div class="card-footer">
-          {{ post.pub_date }}
+          {{ org.pub_date }}
         </div>
       </div>
+{% endfor %}
 {% endblock %}
