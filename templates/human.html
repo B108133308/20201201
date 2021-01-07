@@ -4,37 +4,37 @@
 {% endblock %}
 {% block titlemessage %}
 <h1>
-    收容數量統計圖
-    <small class="text-muted">各縣市收容數量</small></h1>
+    人道處理數量統計圖
+    <small class="text-muted">各縣市人道處理數量</small></h1>
 {% endblock %}
 {% block content %}
 
 <br>
 <center>
-<button><a href="/keep/1">新北市</a></button>
-<button><a href="/keep/2">臺北市</a></button>
-<button><a href="/keep/3">臺中市</a></button>
-<button><a href="/keep/4">臺南市</a></button>
-<button><a href="/keep/5">高雄市</a></button>
-<button><a href="/keep/6">桃園市</a></button>
-<button><a href="/keep/7">宜蘭縣</a></button>
-<button><a href="/keep/8">新竹縣</a></button>
-<button><a href="/keep/9">苗栗縣</a></button>
-<button><a href="/keep/10">彰化縣</a></button>
-<button><a href="/keep/11">南投縣</a></button>
-<button><a href="/keep/12">雲林縣</a></button>
-<button><a href="/keep/13">嘉義縣</a></button>
+<button><a href="/human/1">新北市</a></button>
+<button><a href="/human/2">臺北市</a></button>
+<button><a href="/human/3">臺中市</a></button>
+<button><a href="/human/4">臺南市</a></button>
+<button><a href="/human/5">高雄市</a></button>
+<button><a href="/human/6">桃園市</a></button>
+<button><a href="/human/7">宜蘭縣</a></button>
+<button><a href="/human/8">新竹縣</a></button>
+<button><a href="/human/9">苗栗縣</a></button>
+<button><a href="/human/10">彰化縣</a></button>
+<button><a href="/human/11">南投縣</a></button>
+<button><a href="/human/12">雲林縣</a></button>
+<button><a href="/human/13">嘉義縣</a></button>
 <br>
 <br>
-<button><a href="/keep/14">屏東縣</a></button>
-<button><a href="/keep/15">臺東縣</a></button>
-<button><a href="/keep/16">花蓮縣</a></button>
-<button><a href="/keep/17">澎湖縣</a></button>
-<button><a href="/keep/18">基隆市</a></button>
-<button><a href="/keep/19">新竹市</a></button>
-<button><a href="/keep/20">嘉義市</a></button>
-<button><a href="/keep/21">金門縣</a></button>
-<button><a href="/keep/22">連江縣</a></button>
+<button><a href="/human/14">屏東縣</a></button>
+<button><a href="/human/15">臺東縣</a></button>
+<button><a href="/human/16">花蓮縣</a></button>
+<button><a href="/human/17">澎湖縣</a></button>
+<button><a href="/human/18">基隆市</a></button>
+<button><a href="/human/19">新竹市</a></button>
+<button><a href="/human/20">嘉義市</a></button>
+<button><a href="/human/21">金門縣</a></button>
+<button><a href="/human/22">連江縣</a></button>
 </center>
 
 
@@ -54,15 +54,15 @@ var myChart = new Chart(ctx, {
     data: {
         labels: [
               {% for item in data %}
-                  '{{ item.keep_year }}{{ item.city }}',
+                  '{{ item.human_year }}{{ item.city }}',
               {% endfor %}
 
         ],
         datasets: [{
-            label: "歷年收養數量",
+            label: "歷年人道處理數量",
             data: [
                 {% for item in data %}
-                  '{{ item.keep_num }}',
+                  '{{ item.human_num }}',
                 {% endfor %}
             ],
             backgroundColor: [

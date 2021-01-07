@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from mainsite.models import Post
 import random
 from datetime import datetime
-from mainsite.models import AccessInfo, Branch, StoreIncome, text1, City, Keep
+from mainsite.models import AccessInfo, Branch, StoreIncome, text1, City, Keep, Human, Adopt, Died
 
 def homepage(request):
     rec = AccessInfo()
@@ -22,8 +22,44 @@ def citykeep(request, bid=0):
         data = Keep.objects.all()
     else:
         data = Keep.objects.filter(city=bid)
-    title = "縣市收容" 
+    title = "縣市收容數量（隻）" 
     return render(request, "keep.html", locals())
+
+def cityhuman(request, bid=0):
+    now = datetime.now()
+
+    cities = City.objects.all()
+
+    if bid ==0:
+        data = Human.objects.all()
+    else:
+        data = Human.objects.filter(city=bid)
+    title = "人道處理數量（隻）" 
+    return render(request, "human.html", locals())
+
+def cityadopt(request, bid=0):
+    now = datetime.now()
+
+    cities = City.objects.all()
+
+    if bid ==0:
+        data = Adopt.objects.all()
+    else:
+        data = Adopt.objects.filter(city=bid)
+    title = "認領養數量（隻）" 
+    return render(request, "adopt.html", locals())
+
+def citydied(request, bid=0):
+    now = datetime.now()
+
+    cities = City.objects.all()
+
+    if bid ==0:
+        data = Died.objects.all()
+    else:
+        data = Died.objects.filter(city=bid)
+    title = "所內死亡數量（隻）" 
+    return render(request, "died.html", locals())
 
 def mychart(request, bid=0):
     now = datetime.now()

@@ -66,3 +66,27 @@ class Keep(models.Model):
 
     def __str__(self):
         return str(self.keep_num)
+
+class Human(models.Model):
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    human_year = models.CharField(max_length=4)
+    human_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.human_num)
+
+class Adopt(models.Model):
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    adopt_year = models.CharField(max_length=4)
+    adopt_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.adopt_num)
+
+class Died(models.Model):
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    died_year = models.CharField(max_length=4)
+    died_num = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.died_num)
